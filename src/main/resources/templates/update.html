@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+</head>
+<body>
+<form action="/board/update" method="post" name="updateForm">
+    <input type="hidden" name="id" th:value="${boardUpdate.id}">
+<!--    보여주지는 않는데, 필요한 정보-->
+    writer: <input type="text" name="boardWriter" th:value="${boardUpdate.boardWriter}" readonly> <br>
+<!--    보여는 주는데 읽기 전용-->
+    pass: <input type="text" name="boardPass" id="boardPass"> <br>
+<!--    비밀번호 점검을 위해 값만을 받음-->
+    title: <input type="text" name="boardTitle" th:value="${boardUpdate.boardTitle}"> <br>
+    contents: <textarea name="boardContents" cols="30" rows="10" th:text="${boardUpdate.boardContents}"></textarea> <br>
+    <input type="hidden" name="boardHits" th:value="${boardUpdate.boardHits}">
+<!--    hidden 경우 정보를 가지고 있는 게 좋음-->
+    <input type="button" value="글수정" onclick="boardUpdate()">
+</form>
+<script th:inline="javascript">
+    const boardUpdate = () => {
+      const pass = [[${boardUpdate.boardPass}]];
+<!--      비밀번호 받아서 검사-->
+      const inputPass = document.getElementById("boardPass").value;
+      if (pass == inputPass) {
+        document.updateForm.submit();
+<!--        수정내용 보내기-->
+      } else {
+        alert("비밀번호가 일치하지 않습니다!");
+      }
+    }
+</script>
+</body>
