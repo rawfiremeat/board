@@ -6,7 +6,7 @@
 </head>
 <body>
     <button onclick="saveReq()">글작성</button>
-    <button onclick="listReq()">글목록</button>
+    <button onclick="loginReq()">로그인</button>
     <button onclick="pagingReq()">페이징목록</button>
 </body>
 <script>
@@ -15,8 +15,8 @@
     const saveReq = () => {
         location.href = "/board/save";
     }
-    const listReq = () => {
-        location.href = "/board/";
+    const loginReq = () => {
+        location.href = "https://kauth.kakao.com/oauth/authorize?client_id=ecf7e443a56627d29bfcc53a5fa9e752&redirect_uri=http://localhost:8082/login/oauth2/code/kakao&response_type=code";
     }
     const pagingReq = () => {
         location.href = "/board/paging";

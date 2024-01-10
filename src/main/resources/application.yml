@@ -10,6 +10,25 @@ spring:
     password: 12341234
   thymeleaf:
     cache: false
+#    여기
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          kakao:
+#            client-name: kakao
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8082/login/oauth2/code/kakao
+#            client-id: ecf7e443a56627d29bfcc53a5fa9e752
+#        provider:
+#          kakao:
+#            authorization-uri: https://kauth.kakao.com/oauth/auth
+#            token-uri: https://kauth.kakao.com/oauth/foken
+#            user-info-uri: https://kapi.kakao.com/v2/user/me
+#            user-name-attribute: id
+#            client-secret: tLZpxYJpeEAvKfsEhPuiWjLpdaZAH4E7
+#            client-authentication-method: POST
+#            scope: profile, nickname, account_email
 
   # spring data jpa 설정
   jpa:
