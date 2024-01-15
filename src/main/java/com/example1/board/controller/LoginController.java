@@ -13,15 +13,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/login/oauth2/code/kakao")
+
 public class LoginController {
-    @GetMapping
+    @GetMapping("/login/oauth2/code/kakao")
     public @ResponseBody String kakaoCallback(String code){
 //        데이터 요청 라이브러리
         RestTemplate rt = new RestTemplate();
@@ -32,7 +31,7 @@ public class LoginController {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "ecf7e443a56627d29bfcc53a5fa9e752");
-        params.add("redirect_uri", "http://localhost:8082/login/oauth2/code/kakao");
+        params.add("redirect_uri", "http://localhost:8083/login/oauth2/code/kakao");
         params.add("code", code);
         //헤더와 body 합치기
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = new HttpEntity<>(params, headers);
@@ -75,5 +74,8 @@ public class LoginController {
         return response2.getBody();
 
     }
-
+    @GetMapping("/login/oauth2/code/naver")
+    public @ResponseBody String naverCallback(String code){
+        return "네이버 완료 " + code;
+    }
 }

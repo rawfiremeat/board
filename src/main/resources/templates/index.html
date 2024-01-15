@@ -10,13 +10,12 @@
     <button onclick="pagingReq()">페이징목록</button>
 </body>
 <script>
-<!--    function saveReq() { 이런 식으로 정의할 수도 있음-->
-<!--    }-->
+
     const saveReq = () => {
         location.href = "/board/save";
     }
     const loginReq = () => {
-        location.href = "https://kauth.kakao.com/oauth/authorize?client_id=ecf7e443a56627d29bfcc53a5fa9e752&redirect_uri=http://localhost:8082/login/oauth2/code/kakao&response_type=code";
+        location.href = "https://kauth.kakao.com/oauth/authorize?client_id=ecf7e443a56627d29bfcc53a5fa9e752&redirect_uri=http://localhost:8083/login/oauth2/code/kakao&response_type=code";
     }
     const pagingReq = () => {
         location.href = "/board/paging";
